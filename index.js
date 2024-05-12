@@ -1,6 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
+const cors = require('cors')
 
 import user from './routes.js'
 
@@ -9,6 +10,7 @@ dotenv.config()
 const app = express()
 
 app.use(bodyParser.json())
+app.use(cors())
 
 app.get("/", (req, res)=>{
     res.json({"Hi":"Hello World"})
